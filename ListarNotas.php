@@ -6,15 +6,19 @@ if(mysqli_connect_errno())
 }
 else
 {
-$id=$_GET["IdVideo"];
-$query = "SELECT url FROM Videos  WHERE IdVideo = '$id'";
+$string = file_get_contents('php://input');
+$query = "SELECT * FROM Notas";
 $result = mysqli_query($con, $query);
 $objetos = array();
-
 while($row = mysqli_fetch_array($result)) 
 { 
-		$url=$row['url'];		
-    	$objeto = array('url'=> $url);	
+		$IdNota=$row['IdNota'];
+		$Nombre=$row['Nombre'];
+		$CordNotaY=$row['CordNotaY'];
+		$CordNotaAsteriscoX=$row['CordNotaAsteriscoX'];
+		$CordNotaAsteriscoY=$row['CordNotaAsteriscoY'];
+		
+    	$objeto = array('IdNota'=> $IdNota,'Nombre'=> $Nombre,'CordNotaY'=> $CordNotaY,'CordNotaAsteriscoX'=> $CordNotaAsteriscoX,'CordNotaAsteriscoY'=> $CordNotaAsteriscoY);	
     	$objetos[] = $objeto;
 	
 }

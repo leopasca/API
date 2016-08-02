@@ -6,15 +6,15 @@ if(mysqli_connect_errno())
 }
 else
 {
-$id=$_GET["IdVideo"];
-$query = "SELECT url FROM Videos  WHERE IdVideo = '$id'";
+$id=$_GET["IdNota"];
+$query = "SELECT Nombre FROM Notas  WHERE IdNota = '$id'";
 $result = mysqli_query($con, $query);
 $objetos = array();
 
 while($row = mysqli_fetch_array($result)) 
 { 
-		$url=$row['url'];		
-    	$objeto = array('url'=> $url);	
+		$Nombre=$row['Nombre'];		
+    	$objeto = array('Nombre'=> $Nombre);	
     	$objetos[] = $objeto;
 	
 }
