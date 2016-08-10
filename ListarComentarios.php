@@ -1,6 +1,5 @@
 <?php
-$con=mysqli_connect("us-cdbr-azure-east-c.cloudapp.net","acsm_9bbdbc7874919a6","bab9897d1830ea","05e3e334");
-
+$con=mysqli_connect("us-cdbr-azure-east-c.cloudapp.net","bab9897d1830ea","05e3e334","acsm_9bbdbc7874919a6");
 if(mysqli_connect_errno())
 {
 	echo "Failed to connect to MySQL: " .mysqli_connect_error();
