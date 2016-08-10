@@ -6,8 +6,7 @@ if(mysqli_connect_errno())
 }
 else
 {
-echo "hola";
-/*
+
 $string = file_get_contents('php://input');
 $comentario=json_decode($string,true);
 $query = "SELECT * FROM comentarios";
@@ -23,13 +22,13 @@ while($row = mysqli_fetch_array($result))
 		
     	$objeto = array('IdComentario'=> $IdComentario,'Comentario'=> $Comentario,'CordComentarioY'=> $CordComentarioY,'CordAsteriscoX'=> $CordAsteriscoX,'CordAsteriscoY'=> $CordAsteriscoY);	
     	$objetos[] = $objeto;
-*/	
+
 }
 
 mysqli_close($con);
-/*
+
 header("Content-Type: application/json");
 $json_string = json_encode($objetos,JSON_PRETTY_PRINT);
 echo $json_string;
-*/
+
 ?>
