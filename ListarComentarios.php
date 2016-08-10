@@ -24,9 +24,9 @@ while($row = mysqli_fetch_array($result))
 		
     	$objeto = array('IdComentario'=> $IdComentario,'Comentario'=> $Comentario,'CordComentarioY'=> $CordComentarioY,'CordAsteriscoX'=> $CordAsteriscoX,'CordAsteriscoY'=> $CordAsteriscoY);	
     	$objetos[] = $objeto;
-	
+*/	
 }
-*/
+
 mysqli_close($con);
 /*
 header("Content-Type: application/json");
