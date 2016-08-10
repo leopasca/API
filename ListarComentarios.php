@@ -10,7 +10,7 @@ else
 {
 $string = file_get_contents('php://input');
 $comentario=json_decode($string,true);
-$query = "SELECT * FROM Comentarios";
+$query = "SELECT * FROM comentarios";
 $result = mysqli_query($con, $query);
 $objetos = array();
 while($row = mysqli_fetch_array($result)) 
