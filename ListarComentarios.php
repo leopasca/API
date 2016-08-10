@@ -1,12 +1,12 @@
 <?php
 $con=mysqli_connect("us-cdbr-azure-east-c.cloudapp.net","acsm_9bbdbc7874919a6","bab9897d1830ea","05e3e334");
 
-
 if(mysqli_connect_errno())
 {
 	echo "Failed to connect to MySQL: " .mysqli_connect_error();
 }
-else
+echo "hola";
+/*else
 {
 $string = file_get_contents('php://input');
 $comentario=json_decode($string,true);
@@ -25,6 +25,7 @@ while($row = mysqli_fetch_array($result))
     	$objetos[] = $objeto;
 	
 }
+*/
 mysqli_close($con);
 header("Content-Type: application/json");
 $json_string = json_encode($objetos,JSON_PRETTY_PRINT);
