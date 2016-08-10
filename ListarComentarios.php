@@ -5,9 +5,10 @@ if(mysqli_connect_errno())
 {
 	echo "Failed to connect to MySQL: " .mysqli_connect_error();
 }
-echo "hola";
-/*else
+else
 {
+echo "hola";
+/*
 $string = file_get_contents('php://input');
 $comentario=json_decode($string,true);
 $query = "SELECT * FROM comentarios";
@@ -27,7 +28,9 @@ while($row = mysqli_fetch_array($result))
 }
 */
 mysqli_close($con);
+/*
 header("Content-Type: application/json");
 $json_string = json_encode($objetos,JSON_PRETTY_PRINT);
 echo $json_string;
+*/
 ?>
