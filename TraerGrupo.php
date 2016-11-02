@@ -6,23 +6,29 @@ if(mysqli_connect_errno())
 }
 else
 {
-<<<<<<< HEAD
-$id=$_GET["Nota"];
-=======
-$id=$_GET["Nombre"];
->>>>>>> 13030ddc4ad15f6bcac2c6e57f3920a02b9d6acd
-$query = "SELECT Nota FROM Notas  WHERE Nombre = '$id'";
+
+$string = file_get_contents('php://input');
+$comentario=json_decode($string,true);
+$query = "SELECT * FROM Grupos WHERE Nombre = ?";
+$stmt=$con->prepare($query);
+$stmt->bind_param(
+'s',
+$objeto["Nombre"]
+);
 $result = mysqli_query($con, $query);
 $objetos = array();
-
 while($row = mysqli_fetch_array($result)) 
 { 
-		$Nota=$row['Nota'];		
-    	$objeto = array('Nota'=> $Nota);	
+		$IdGrupo=$row['IdGrupo'];
+		$Nombre=$row['Nombre'];
+		$IdIntegrantes=$row['IdIntegrantes'];		
+    	$objeto = array('IdGrupo'=> $IdGrupo,'Nombre'=> $Nombre,'IdIntegrantes'=> $IdIntegrantes);	
     	$objetos[] = $objeto;
-	
+
 }
+
 mysqli_close($con);
+
 header("Content-Type: application/json");
 $json_string = json_encode($objetos,JSON_PRETTY_PRINT);
 echo $json_string;
