@@ -6,17 +6,12 @@ if(mysqli_connect_errno())
 }
 else
 {
-
+$id=$_GET["IdGrupo"];
 $string = file_get_contents('php://input');
 $comentario=json_decode($string,true);
-$query = "SELECT * From Usuarios 
-Where IdUsuario NOT IN (SELECT IdUsuario From UsuariosGrupo  Where IdGrupo = 3)
+$query = "SELECT * FROM Usuarios WHERE IdUsuario NOT IN (SELECT IdUsuario From UsuariosGrupo  Where IdGrupo = '$id')
 ";
 $stmt=$con->prepare($query);
-$stmt->bind_param(
-'i',
-$objeto["IdGrupo"]
-);
 $result = mysqli_query($con, $query);
 $objetos = array();
 while($row = mysqli_fetch_array($result)) 
